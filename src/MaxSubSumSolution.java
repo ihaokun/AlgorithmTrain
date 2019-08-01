@@ -2,11 +2,10 @@
  * 最大子序列和问题
  * 问题描述：
  * 给定（可能有负的）整数 A1、A2，...，An，求
- * <p>
- * i
- * ∑ Ak    的最大值（为方便起见，如果所有整数均为负数，则最大子序列和为0）
- * k=i
- * <p>
+ *      i
+ *      ∑ Ak    的最大值（为方便起见，如果所有整数均为负数，则最大子序列和为0）
+ *      k=i
+ *
  * 4种解法
  *
  * @author ihaokun
@@ -17,7 +16,7 @@ public class MaxSubSumSolution {
     public static void main(String[] args) {
         int[] sequence = {-2, 11, -4, 13, -5, -2};
         System.out.println("maxSubSum1(sequence) = " + maxSubSum1(sequence));
-        System.out.println("maxSubSum1(sequence) = " + maxSubSum1(sequence));
+        System.out.println("maxSubSum(sequence) = " + maxSubSum(sequence));
     }
 
     /**
@@ -72,11 +71,11 @@ public class MaxSubSumSolution {
      * @see #maxSubSum1     观察可知，和上面的方法是同一原理
      * 是同一个原理，不过这个是通过思考手写的
      */
-    int maxSubSum(int[] sequence) {
+    static int maxSubSum(int[] sequence) {
         int maxSubSum = 0;
         for (int i = 0; i < sequence.length; i++) {
-            int subSum = 0;
             for (int j = 0; j < sequence.length - i; j++) {
+                int subSum = 0;
                 for (int k = i; k <= j; k++) {
                     subSum += sequence[k];
                 }
