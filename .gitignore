@@ -1,5 +1,12 @@
+# idea
 .idea
 *.iws
 *.iml
 *.ipr
 out
+
+# eclipse
+.settings
+.classpath
+.project
+bin
