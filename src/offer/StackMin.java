@@ -20,113 +20,112 @@ import java.util.Stack;
  * 			这样，无论是push还是pop操作，minStack的 栈顶 都是最小值元素
  * 示例：
  * 		push 3
- *		push 4
- *		push 2
- *		push 3
- *		pop
- *		pop
- *		pop
- *		push 0
- *		
- *		rawStack	minStack		top(min)
- *		3			3				3
- *		3,4			3,3				3
- *		3,4,2		3,3,2			2
- *		3,4,2,3		3,3,2,2			2
- *		3,4,2		3,3,2			2
- *		3,4			3,3				3
- *		3			3				3
- *		3,0			3,0				0
+ * 		push 4
+ * 		push 2
+ * 		push 3
+ * 		pop
+ * 		pop
+ * 		pop
+ * 		push 0
+ *
+ * 		rawStack	minStack		top(min)
+ * 		3			3				3
+ * 		3,4			3,3				3
+ * 		3,4,2		3,3,2			2
+ * 		3,4,2,3		3,3,2,2			2
+ * 		3,4,2		3,3,2			2
+ * 		3,4			3,3				3
+ * 		3			3				3
+ * 		3,0			3,0				0
  * </pre>
- * 
- * @see    <a herf="https://blog.csdn.net/u013132035/article/details/80603691">
- * 
+ *
  * @author ihaokun
- * @date   2019年8月16日
+ * @date 2019年8月16日
+ * @see <a href="https://blog.csdn.net/u013132035/article/details/80603691">reference link</a>
  */
 public class StackMin {
 
-	Stack<Integer> rawStack = new Stack<Integer>();
-	Stack<Integer> minStack = new Stack<Integer>();
+    Stack<Integer> rawStack = new Stack<>();
+    Stack<Integer> minStack = new Stack<>();
 
-	public void push1(int node) {
-		rawStack.push(node);
-		int min = rawStack.peek();
-		for (Integer integer : rawStack) {
-			if (min > integer) {
-				min = integer;
-			}
-		}
-		minStack.push(min);
-	}
+    public void push1(int node) {
+        rawStack.push(node);
+        int min = rawStack.peek();
+        for (Integer integer : rawStack) {
+            if (min > integer) {
+                min = integer;
+            }
+        }
+        minStack.push(min);
+    }
 
-	/**
-	 * 错误，若是有了pop操作，那么得到的min是不正确的，不能采用原栈排序的方式
-	 * 
-	 * @param node
-	 */
-	@Deprecated
-	public void push(int node) {
-		rawStack.push(node);
-		// 排序（降序）
-		int capacity = rawStack.size();
-		int[] arr = new int[capacity];
-		int index = 0;
-		// 出栈
-		while (!rawStack.isEmpty()) {
-			arr[index++] = rawStack.pop();
-		}
-		// 排序
-		Arrays.sort(arr);
-		// 入栈
-		for (int i = arr.length - 1; i >= 0; i--) {
-			rawStack.push(arr[i]);
-		}
-	}
+    /**
+     * 错误，若是有了pop操作，那么得到的min是不正确的，不能采用原栈排序的方式
+     *
+     * @param node
+     */
+    @Deprecated
+    public void push(int node) {
+        rawStack.push(node);
+        // 排序（降序）
+        int capacity = rawStack.size();
+        int[] arr = new int[capacity];
+        int index = 0;
+        // 出栈
+        while (!rawStack.isEmpty()) {
+            arr[index++] = rawStack.pop();
+        }
+        // 排序
+        Arrays.sort(arr);
+        // 入栈
+        for (int i = arr.length - 1; i >= 0; i--) {
+            rawStack.push(arr[i]);
+        }
+    }
 
-	public void pop() {
-		rawStack.pop();
-		minStack.pop();
-	}
+    public void pop() {
+        rawStack.pop();
+        minStack.pop();
+    }
 
-	public int top() {
-		return minStack.peek();
-	}
+    public int top() {
+        return minStack.peek();
+    }
 
-	public int min() {
-		/*
-		 * // 获得该栈 中最小的元素（非O(1)的方法），错误，没有考虑后续操作
-		 * int minElement = stack.pop();
-		 * while (!stack.isEmpty()) {
-		 * Integer top = stack.pop();
-		 * if (top < minElement) {
-		 * minElement = top;
-		 * }
-		 * }
-		 * return minElement;
-		 */
-		return top();
-	}
+    public int min() {
+        /*
+         * // 获得该栈 中最小的元素（非O(1)的方法），错误，没有考虑后续操作
+         * int minElement = stack.pop();
+         * while (!stack.isEmpty()) {
+         * Integer top = stack.pop();
+         * if (top < minElement) {
+         * minElement = top;
+         * }
+         * }
+         * return minElement;
+         */
+        return top();
+    }
 
-	public static void main(String[] args) {
-		StackMin stackMin = new StackMin();
+    public static void main(String[] args) {
+        StackMin stackMin = new StackMin();
 
-		// test
-		stackMin.push1(3);
-		System.out.println(stackMin.min());
-		stackMin.push1(4);
-		System.out.println(stackMin.min());
-		stackMin.push1(2);
-		System.out.println(stackMin.min());
-		stackMin.push1(3);
-		System.out.println(stackMin.min());
-		stackMin.pop();
-		System.out.println(stackMin.min());
-		stackMin.pop();
-		System.out.println(stackMin.min());
-		stackMin.pop();
-		System.out.println(stackMin.min());
-		stackMin.push1(0);
-		System.out.println(stackMin.min());
-	}
+        // test
+        stackMin.push1(3);
+        System.out.println(stackMin.min());
+        stackMin.push1(4);
+        System.out.println(stackMin.min());
+        stackMin.push1(2);
+        System.out.println(stackMin.min());
+        stackMin.push1(3);
+        System.out.println(stackMin.min());
+        stackMin.pop();
+        System.out.println(stackMin.min());
+        stackMin.pop();
+        System.out.println(stackMin.min());
+        stackMin.pop();
+        System.out.println(stackMin.min());
+        stackMin.push1(0);
+        System.out.println(stackMin.min());
+    }
 }
