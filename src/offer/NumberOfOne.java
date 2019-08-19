@@ -117,7 +117,7 @@ public class NumberOfOne {
 			builder.append(integer % 2);
 			integer /= 2;
 		}
-		builder = builder.reverse();
+		builder.reverse();
 		return builder.toString();
 	}
 	
