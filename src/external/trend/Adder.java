@@ -4,15 +4,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
+ * <pre>
  * 耐心，按顺序做，难度应该是递增的
  * 编程实现两个超长非负数之和
  *
  * 要点：
- * 1.《Thinking in Java》说的好，不建议使用char[]；应该更多的使用String和StringBuilder
+ * 1.《Thinking in Java》的char有关章节部分有说，不建议使用char[]；应该更多的使用String和StringBuilder
  * 2. int 转 char 是高向低转换，会出现问题，不要这么使用，把char[]改为用String替代
  *
  * 关联：
- * 感觉和之前做过的一道 <pre>剑指offer</pre> 的二进制相加之和 的题目有些相似之处
+ * 感觉和之前做过的一道 <em>剑指offer</em> 的二进制相加之和 的题目有些相似之处
+ * </pre>
  *
  * @author ihaokun
  * @date 2019/8/8 19:04
