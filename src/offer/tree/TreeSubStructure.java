@@ -2,7 +2,7 @@ package offer.tree;
 
 /**
  * <pre>
- * 剑指offer题目	- 树的子结构
+ * 剑指offer题目 - 树的子结构
  * 题目描述：
  * 		输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）
  * 考察知识点：
@@ -19,7 +19,7 @@ package offer.tree;
  * @date 2019年8月14日
  * @see <a href="https://blog.csdn.net/wushuomin/article/details/79943737">reference link，二叉树的子树、子结构区别</a>
  */
-public class HasTreeSubStructure {
+public class TreeSubStructure {
     private static class TreeNode {
         int val = 0;
         TreeNode left = null;
