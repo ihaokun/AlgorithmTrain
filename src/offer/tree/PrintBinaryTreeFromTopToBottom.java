@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * 题目描述：
  *      从上往下 打印出二叉树的每个节点，同层节点 从左至右 打印
  * 考察知识点：
- *      二叉树、层次遍历、递归
+ *      二叉树、层序遍历、递归
  * 小结：
  *      这题不难，和其他三种遍历类似，注意递归
  * </pre>
@@ -51,9 +51,9 @@ public class PrintBinaryTreeFromTopToBottom {
     /**
      * 层序遍历，遍历一层的方法，递归使用
      *
-     * @see #print2(ArrayList, int)
      * @param nodes node列表
      * @param depth 深度
+     * @see #print2(ArrayList, int)
      */
     private static void print1(ArrayList<TreeNode> nodes, int depth) {
         if (nodes.size() > 0) {
@@ -76,10 +76,10 @@ public class PrintBinaryTreeFromTopToBottom {
     /**
      * print1()方法的变种，将数据存入到ArrayList中
      *
+     * @param nodes 数组列表
+     * @param depth 当前节点深度
+     * @return 数组列表
      * @see #print1(ArrayList, int)
-     * @param nodes
-     * @param depth
-     * @return
      */
     private static ArrayList<TreeNode> print2(ArrayList<TreeNode> nodes, int depth) {
         ArrayList<TreeNode> arrayList = new ArrayList<>();
