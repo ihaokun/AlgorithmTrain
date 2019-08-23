@@ -12,14 +12,16 @@ import java.util.Arrays;
  *      栈、树，二叉搜索树 和 二分查找 有关联
  * 解题关键：
  *      注意 二叉搜索树的性质，其定义为：<em>任一节点的 <tt>左子树</tt>的节点均 小于 该节点，<tt>右子树</tt>的节点均 大于 该节点</em>
- *      根据该性质，对后序遍历序列进行<i>递归</i>拆分，其左右子树的序列作为参数分别进行递归
+ *      根据该性质，后序遍历的尾节点是根节点，对后序遍历序列进行<i>递归</i>拆分，其左右子树的序列作为参数分别进行递归
+ * 关联：
+ *      《算法分析》中，chapter 3.6.3 栈的应用中，有中缀到后缀的转换，可以适当参考看看
  * </pre>
  *
  * @author ihaokun
  * @date 2019/8/19 16:32
  * @see <a href="https://blog.csdn.net/u013132035/article/details/80607000">reference link</a>
  */
-public class BinarySearchTree {
+public class BinarySearchTreeSeq {
     private static class TreeNode {
         int val = 0;
         TreeNode left = null;
@@ -63,7 +65,7 @@ public class BinarySearchTree {
             return false;
         int indexEnd = sequence.length - 1;
         int rootVal = sequence[indexEnd];
-        // 分界下标、移动下标
+        // 左右分界下标、移动下标
         int indexOf = 0, i = 0;
         // 左子树
         for (; i < sequence.length; i++) {
