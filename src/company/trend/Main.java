@@ -1,4 +1,4 @@
-package external.trend;
+package company.trend;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

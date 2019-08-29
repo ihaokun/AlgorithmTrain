@@ -1,4 +1,4 @@
-package offer.stack;
+package jianzhi.stack;
 
 import java.util.Arrays;
 import java.util.List;

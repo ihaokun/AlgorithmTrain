@@ -1,4 +1,4 @@
-package offer.tree;
+package jianzhi.tree;
 
 import java.util.LinkedList;
 
@@ -13,7 +13,7 @@ import java.util.LinkedList;
  * 考点：
  *      分解让复杂问题简单化
  * 注意：
- *      关联：和上一道题{@link offer.list.CopyRandomLinkedList}不一样，上一题的复制是要全部新节点，这题不能有新节点
+ *      关联：和上一道题{@link jianzhi.list.CopyRandomLinkedList}不一样，上一题的复制是要全部为new的新节点，这题全是原节点的引用
  *      <em>这题有点模糊不清的地方，排序是指的什么排序，这边测试的用了中序得到的升序排序，测试题目的case成功了</em>
  * 解题思路：
  *      由 二叉搜索树 + 中序遍历 的性质可得到 一个排序后的链表，详见{@link #convert(LinkedList, TreeNode)}

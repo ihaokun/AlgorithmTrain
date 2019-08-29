@@ -1,4 +1,4 @@
-package offer;
+package jianzhi;
 
 /**
  * <pre>
@@ -7,11 +7,11 @@ package offer;
  * 		输入一个整数，输出该整数二进制中表示1的个数。其中负数用补码表示。
  * 
  * 考察部分：
- * 		计算机基础、Java位运算符&|^~
+ * 		计算机基础、Java位运算符&|^~的运用
  * 
  * 解法：
  * 		前两个解法都是先将整数转为二进制字符串，再统计字符串中1的个数；
- * 		解法一直接用了Integer.toBinaryString()方法，类似的还有Integer.valueOf(String,int)将对应进制字符串转为int
+ * 		解法一直接用了JDK类库，详见{@link #solution1(int)}，类库{@link Integer#toBinaryString(int)}
  * 		解法二手写实现了int转二进制字符串的方法
  * 		
  * 小结：
@@ -25,7 +25,7 @@ package offer;
 public class NumberOfOne {
 
 	public static void main(String[] args) {
-		// Java直接表示二、八、十六进制
+		// Java直接表示二bin、八octal、十六hex进制，直接常量（字面量literal）
 		System.out.println(0B111);
 		System.out.println(0777);
 		System.out.println(0Xabf);
@@ -64,6 +64,7 @@ public class NumberOfOne {
 	/**
 	 * 解法2：
 	 * 		手写十进制转二进制
+	 * 		过程：先得到十进制的绝对值，转化为正数的二进制字符串，是负数的话就再转一次补码表示
 	 * 
 	 * @param integer 整数
 	 * @return 1的个数
@@ -123,7 +124,8 @@ public class NumberOfOne {
 	
 	/**
 	 * 解法1：
-	 * 		使用JDK类库，Integer类的toBinaryString()方法
+	 * 		使用JDK类库，lang包下的Integer类的toBinaryString(int)方法，可直接得到整型int的二进制字符串
+	 * 		然后统计 二进制字符串中 1的个数
 	 * 
 	 * @param integer 整数
 	 * @return 1的个数

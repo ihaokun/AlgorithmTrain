@@ -1,4 +1,4 @@
-package external.trend;
+package company.trend;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 2. int 转 char 是高向低转换，会出现问题，不要这么使用，把char[]改为用String替代
  *
  * 关联：
- * 感觉和之前做过的一道 <em>剑指offer</em> 的二进制相加之和 的题目有些相似之处
+ * 感觉和之前做过的一道 <em>剑指offer</em> 的二进制相关的题目有些相似之处，见{@link jianzhi.NumberOfOne}
  * </pre>
  *
  * @author ihaokun

@@ -1,4 +1,4 @@
-package offer.list;
+package jianzhi.list;
 
 import java.util.ArrayList;
 
@@ -61,6 +61,7 @@ public class CopyRandomLinkedList {
 
     }
 
+    @Deprecated
     private static RandomListNode clone(RandomListNode pHead) {
         RandomListNode node = null;
         ArrayList<RandomListNode> arr = new ArrayList<>();
@@ -77,6 +78,7 @@ public class CopyRandomLinkedList {
         return arr.get(0);
     }
 
+    @Deprecated
     private static RandomListNode clone1(RandomListNode pHead) {
         RandomListNode head = null;
         if (pHead != null){

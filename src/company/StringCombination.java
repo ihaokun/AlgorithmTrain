@@ -1,4 +1,4 @@
-package external;
+package company;
 
 /**
  * <pre>
@@ -13,7 +13,7 @@ package external;
  * @author ihaokun
  * @date 2019年8月13日
  */
-public class Eleme {
+public class StringCombination {
 	
 	public static void main(String[] args) {
 		System.out.println(factorial(5));
