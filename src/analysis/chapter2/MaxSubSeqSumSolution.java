@@ -1,4 +1,4 @@
-package chapter2;
+package analysis.chapter2;
 
 /**
  * 最大子序列和问题<br/>

@@ -1,6 +1,7 @@
-package chapter2;
+package analysis.chapter2;
 
 /**
+ * 《Data Structure and Algorithm Analysis》3rd
  *
  * @author ihaokun
  * @date 2019/8/5 16:41
@@ -12,13 +13,14 @@ public class BinarySearch {
     }
 
     /**
-     * 折半（二分）查找
+     * 二分|折半 查找
      *
      * 计算时间复杂度：
      * 分析：循环体内工作花费O(1)，需确定循环次数
      *       初始 right - left = N - 1，退出情形为 right - left < 0，每循环一次 right - left的值将折半
      *       循环次数最多为 (㏒(N - 1)) + 2
      *       因此，运行时间是O(logN)
+     *
      * @param arr 数组
      * @param target 被查找元素
      * @return 元素下标
