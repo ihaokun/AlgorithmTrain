@@ -26,7 +26,7 @@ package jianzhi;
  * @author ihaokun
  * @date 2019年8月14日
  */
-public class NumberOfOne {
+public class NumberOf1InBinary {
 
 	public static void main(String[] args) {
 		// Java直接表示二bin、八octal、十六hex进制，直接常量（字面量literal）

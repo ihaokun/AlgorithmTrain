@@ -1,4 +1,4 @@
-package analysis.chapter2;
+package analysis.chapter2_analysis;
 
 /**
  * 《Data Structure and Algorithm Analysis》3rd

@@ -1,22 +1,24 @@
-package analysis.chapter2;
+package analysis.chapter2_analysis;
 
 /**
+ * <pre>
  * 最大子序列和问题<br/>
  * 问题描述：<br/>
- * 给定（可能有负的）整数 A₁、A₂，...，An<br/>
+ *      给定（可能有负的）整数 A₁、A₂，...，An<br/>
  * 求<br/>
- * <p>
- *       i<br/>
- *      ∑ Ak<br/>
- *      k=i
- * </p>
+ *      i
+ *      ∑ Ak
+ *     k=i
  * 的最大值（为方便起见，如果所有整数均为负数，则最大子序列和为0）<br/>
  * 4种解法:
- * <p>
  * 解法1.2均为穷举，不过2在1的方法上进行了优化，减少了循环的次数；
  * 3采用分治；
  * 4联机算法，最优解，是2的改进
- * </p>
+ *
+ * 小结：
+ *      方法2最简洁明了；方法4不易看出正确性，但确是最优解
+ *
+ * </pre>
  *
  * @author ihaokun
  * @date 2019/7/31 21:15
@@ -83,7 +85,7 @@ public class MaxSubSeqSumSolution {
      * @return 最大子序列和
      * @see #maxSubSum1     观察可知，和上面的方法是同一原理，不过这个是通过思考手写的
      */
-    static int maxSubSum(int[] sequence) {
+    private static int maxSubSum(int[] sequence) {
         int maxSum = 0;
         for (int i = 0; i < sequence.length; i++) {
             for (int j = 0; j < sequence.length - i; j++) {
@@ -192,24 +194,26 @@ public class MaxSubSeqSumSolution {
     }
 
     /**
-     * 解法4：<br/>
-     * 最优解，算法分析也很简单，O(N)，线性<br/>
+     * <pre>
+     * 解法4：
+     * 最优解，算法分析也很简单，O(N)，线性
      * 但正确性不是那么容易看出来，重点在于else if的判断
      *
      * 模拟流程：
      * {-2, 11, -4, 13, -5, -2}
      *
-     * 0 + (-2) 0
-     * 0 + 11 11
-     * 11 + (-4) 7
-     * 7 + 13 20
-     * 20 + (-5) 15
-     * 15 + (-2) 13
+     * 0 + (-2)     0
+     * 0 + 11       11
+     * 11 + (-4)    7
+     * 7 + 13       20
+     * 20 + (-5)    15
+     * 15 + (-2)    13
+     * </pre>
      *
      * @param arr 序列
      * @return 最大子序列和
      */
-    static int maxSubSum4(int[] arr) {
+    private static int maxSubSum4(int[] arr) {
         int maxSum = 0, thisSum = 0;
         for (int value : arr) {
             thisSum += value;
