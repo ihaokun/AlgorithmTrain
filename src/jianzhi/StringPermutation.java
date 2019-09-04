@@ -3,7 +3,6 @@ package jianzhi;
 import company.StringCombination;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -15,12 +14,13 @@ import java.util.stream.Collectors;
  *
  * 思路：
  *      和之前<tt>饿了么</tt>的那道题考点接近，饿了么的题目是考的<em>生成组合(combination)</em>；而本题考的是<em>生成排列(permutation)</em>
- *      两道题解题策略类似，都是使用另一个序列来替代原序列，通过替代序列来解题
+ *      两道题解题策略类似，都是使用另一个序列来替代原序列，通过<strong>替代序列</strong>来解题
  *      生成组合(combination)：使用的是 位串(二进制字符串) 来替代原字符串 表示组合
- *      生成排列(permutation)：则是使用 最小正整数序列替代原字符串 递增的最小正整数序列表示排列的可能
+ *      生成排列(permutation)：则是使用 <em>最小正整数序列</em> 替代原字符串，<i>递增</i>的最小正整数序列表示排列的可能
  *
  * 关联：
  *      和<strong>饿了么</strong> 碰到的一道面试题有关联关系，见{@link StringCombination}
+ *      <em>补充</em>：后面做到一道题，可以用跟这道题同样的解法解题，见{@link jianzhi.list.Array2MinNumber}，再写一遍写的更简洁了一些
  *
  * 知识点：
  *      《离散数学》的 chapter6.6 生成排列和组合，这题考的是生成排列，饿了么考的是生成组合
@@ -30,7 +30,8 @@ import java.util.stream.Collectors;
  *      使用最小正整数序列
  *
  * 示例草图：
- *       P(n, r) = n! / (n-r+1)!
+ *       P(n, r) = n * (n - 1) * ... * (n - r + 1)                                      定理
+ *               = n! / (n - r)!                                                        推论
  *       abc；P(3, 3) = 3! / (3-3+1)!= 3! = 3 * 2 * 1 = 6；123，321
  *       123    abc
  *       132    acb
