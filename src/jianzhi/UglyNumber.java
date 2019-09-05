@@ -96,10 +96,12 @@ public class UglyNumber {
      *          array[4] = min(array[2] * 2, array[1] * 3. array[0] * 5) = min(3 * 2, 2 * 3, 1 * 5) = 5；index5 += 1
      *          当某元素乘2、3、5是下一个丑数，则对应下标移到下一个元素
      *
+     * 这个解法有点online algorithm的感觉
      * </pre>
      *
      * @param index N
      * @return      Nth丑数
+     * @see <a href="https://www.jianshu.com/p/be262f304745">refer link</a>
      */
     private static int solution1(int index){
         int index2 = 0, index3 = 0, index5 = 0;
