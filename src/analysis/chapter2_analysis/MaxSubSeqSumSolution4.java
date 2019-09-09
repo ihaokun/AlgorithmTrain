@@ -2,37 +2,39 @@ package analysis.chapter2_analysis;
 
 /**
  * <pre>
- * 最大子序列和问题<br/>
- * 问题描述：<br/>
- *      给定（可能有负的）整数 A₁、A₂，...，An<br/>
- * 求<br/>
- *      i
- *      ∑ Ak
- *     k=i
- * 的最大值（为方便起见，如果所有整数均为负数，则最大子序列和为0）<br/>
+ * 最大子序列和问题，共 4 种解法
+ *
+ * 问题描述：
+ *      给定（可能有负的）整数 A₁、A₂，...，An
+ *      求
+ *           i
+ *          ∑ Ak
+ *          k=i
+ *      的最大值（<i>为方便起见，如果所有整数均为负数，则最大子序列和为0</i>）
+ *
  * 4种解法:
- * 解法1.2均为穷举，不过2在1的方法上进行了优化，减少了循环的次数；
- * 3采用分治；
- * 4联机算法，最优解，是2的改进
+ *      解法1.2均为<em>穷举</em>，不过2在1的方法上进行了优化，减少了一层循环；
+ *      3采用<strong>分治（divide-and-conquer）</strong>；
+ *      4<strong>联机算法（on-line algorithm）</strong>，最优解，是2的改进
  *
  * 小结：
- *      方法2最简洁明了；方法4不易看出正确性，但确是最优解
+ *      方法2最简洁明了；方法4不易看出正确性，但确是最优解；方法3采用分治策略，之后的<i>归并排序</i>也会用到
+ *      效率上 1 < 2 < 3 < 4
  *
  * </pre>
  *
  * @author ihaokun
  * @date 2019/7/31 21:15
  */
-public class MaxSubSeqSumSolution {
+public class MaxSubSeqSumSolution4 {
 
     public static void main(String[] args) {
         int[] sequence = {-2, 11, -4, 13, -5, -2};
         // int[] sequence = {11, -4};
-        System.out.println("maxSubSum1(sequence) = " + maxSubSum1(sequence));
-        System.out.println("maxSubSum(sequence) = " + maxSubSum(sequence));
-        System.out.println("maxSubSum2(sequence) = " + maxSubSum2(sequence));
-        System.out.println("maxSubSum3(sequence) = " + maxSubSum3(sequence));
-        System.out.println("maxSubSum4(sequence) = " + maxSubSum4(sequence));
+        System.out.println("maxSubSum1(sequence) = " + solution1(sequence));
+        System.out.println("maxSubSum2(sequence) = " + solution2(sequence));
+        System.out.println("maxSubSum3(sequence) = " + solution3(sequence));
+        System.out.println("maxSubSum4(sequence) = " + solution4(sequence));
     }
 
     /**
@@ -51,6 +53,8 @@ public class MaxSubSeqSumSolution {
      * 11 + (-4)
      * ...
      *
+     * 最外层是数组元素的遍历；次外层是对应元素的子序列组合遍历；内层是子序列和的计算
+     *
      * 计算该方法的时间单元数：
      * 忽略 前导常数 和 低阶项（常数项）
      *
@@ -61,7 +65,7 @@ public class MaxSubSeqSumSolution {
      * @param sequence 序列
      * @return 最大子序列之和
      */
-    private static int maxSubSum1(int[] sequence) {
+    private static int solution1(int[] sequence) {
         int maxSum = 0;                                         // 1
         for (int i = 0; i < sequence.length; i++) {             // N
             for (int j = i; j < sequence.length; j++) {         // N - i，假设最坏情况为N
@@ -70,32 +74,6 @@ public class MaxSubSeqSumSolution {
                     thisSum += sequence[k];
                 if (thisSum > maxSum)
                     maxSum = thisSum;                           // if结构在双重for循环中，最坏情况为N²
-            }
-        }
-        return maxSum;
-    }
-
-    /**
-     * 自己写的 通过归纳法 得到的 通过穷举 解题
-     *
-     * 思考代码的实现，
-     * 实际是3重循环结构：最外层是数组元素的遍历；次外层是对应元素的子序列组合遍历；内层是子序列和的计算
-     *
-     * @param sequence 数组
-     * @return 最大子序列和
-     * @see #maxSubSum1     观察可知，和上面的方法是同一原理，不过这个是通过思考手写的
-     */
-    private static int maxSubSum(int[] sequence) {
-        int maxSum = 0;
-        for (int i = 0; i < sequence.length; i++) {
-            for (int j = 0; j < sequence.length - i; j++) {
-                int sum = 0;
-                for (int k = i; k <= j; k++) {
-                    sum += sequence[k];
-                }
-                if (sum > maxSum) {
-                    maxSum = sum;
-                }
             }
         }
         return maxSum;
@@ -111,15 +89,14 @@ public class MaxSubSeqSumSolution {
      * @param sequence 数组
      * @return 最大子序列和
      */
-    private static int maxSubSum2(int[] sequence) {
+    private static int solution2(int[] sequence) {
         int maxSum = 0;
         for (int i = 0; i < sequence.length; i++) {
             int thisSum = 0;
             for (int j = i; j < sequence.length; j++) {
                 thisSum += sequence[j];
-                if (thisSum > maxSum) {
+                if (thisSum > maxSum)
                     maxSum = thisSum;
-                }
             }
         }
         return maxSum;
@@ -135,17 +112,20 @@ public class MaxSubSeqSumSolution {
      * @return 最大子序列和
      * @see #maxSubSumRec
      */
-    private static int maxSubSum3(int[] sequence) {
+    private static int solution3(int[] sequence) {
         return maxSubSumRec(sequence, 0, sequence.length - 1);
     }
 
     /**
-     * 该方法采用一种“分治(divide-and-conquer)”策略<br/>
-     * 思路：<br/>
-     * divide：<br/>
-     * &nbsp&nbsp 将问题分成 两个 大致相等的 子问题，然后递归地对它们求解<br/>
-     * conquer：<br/>
-     * &nbsp&nbsp 将两个问题的解 修补到一起并可能再做些少量的附加工作，最后得到整个问题的解<br/><br/>
+     * <pre>
+     *
+     * 该方法采用一种“分治(divide-and-conquer)”策略
+     *
+     * 分（divide）：
+     *      将问题分成 两个 大致相等的 子问题，然后递归地对它们求解
+     * 治（conquer）：
+     *      将 两个问题的解 修补到一起 并可能再做些 少量的附加工作，最后得到整个问题的解
+     *
      * 计算该方法的时间复杂度：<br/>
      * 首先，用T(N)表示该算法所需时间单元。<br/>
      * 考虑基准情形，则T(1) = 1 <br/>
@@ -159,38 +139,42 @@ public class MaxSubSeqSumSolution {
      *               = N * （㏒N + 1）
      *               = N ㏒N + N
      *      故 O(N ㏒N)
+     * </pre>
+     *
+     * border：边界
+     * board：板
      *
      * @param sequence 数组
-     * @param left     数组最左端下标
-     * @param right    数组最右端下标
+     * @param left     数组左边界下标 left border index
+     * @param right    数组右边界下标 right border index
      * @return 最大子序列和
      */
     private static int maxSubSumRec(int[] sequence, int left, int right) {
         // base case
-        if (left == right) {
+        if (left == right)
             return Math.max(sequence[left], 0);
-        }
-        // 递归求得 分开的两半各自的最大子序列和
-        int center = (left + right) >>> 1;
-        int maxLeftSum = maxSubSumRec(sequence, left, center);
-        int maxRightSum = maxSubSumRec(sequence, center + 1, right);
-        // 横跨两部分且通过中间的最大子序列和
+        // 分（divide）：递归 求得 分开的两半各自的最大子序列和
+        int mid = (left + right) >>> 1;
+        int maxLeftSum = maxSubSumRec(sequence, left, mid);
+        int maxRightSum = maxSubSumRec(sequence, mid + 1, right);
+        // 治（conquer）：横跨两部分且通过中间的最大子序列和
         int maxLeftBoardSum = 0, leftBoardSum = 0;
-        for (int i = center; i >= left; i--) {
+        for (int i = mid; i >= left; i--) {
             leftBoardSum += sequence[i];
             if (leftBoardSum > maxLeftBoardSum) {
                 maxLeftBoardSum = leftBoardSum;
             }
         }
         int maxRightBoardSum = 0, rightBoardSum = 0;
-        for (int i = center + 1; i <= right; i++) {
+        for (int i = mid + 1; i <= right; i++) {
             rightBoardSum += sequence[i];
             if (rightBoardSum > maxRightBoardSum) {
                 maxRightBoardSum = rightBoardSum;
             }
         }
+        int maxMidSum = maxLeftBoardSum + maxRightBoardSum;
         // return Max（左半边最大子序列和，右半边最大子序列和，横跨两部分且通过中间的最大子序列和）
-        return Math.max(Math.max(maxLeftSum, maxRightSum), (maxLeftBoardSum + maxRightBoardSum));
+        return Math.max(Math.max(maxLeftSum, maxRightSum), (maxMidSum));
     }
 
     /**
@@ -208,12 +192,15 @@ public class MaxSubSeqSumSolution {
      * 7 + 13       20
      * 20 + (-5)    15
      * 15 + (-2)    13
+     *
+     * 聪明算法的典型：运行时间是明显的，但正确性不容易看出来
+     * 联机算法（on-line algorithm）：仅需要 常量空间（只读一次数据） 并以 线性时间运行（O(N)）
      * </pre>
      *
      * @param arr 序列
      * @return 最大子序列和
      */
-    private static int maxSubSum4(int[] arr) {
+    private static int solution4(int[] arr) {
         int maxSum = 0, thisSum = 0;
         for (int value : arr) {
             thisSum += value;

@@ -1,5 +1,7 @@
 package jianzhi.list;
 
+import analysis.chapter2_analysis.MaxSubSeqSumSolution4;
+
 /**
  * <pre>
  * 剑指offer - 连续子数组的最大和
@@ -19,7 +21,7 @@ package jianzhi.list;
  *
  * 小结：
  *      是和 《Data Structures and Algorithm Analysis in Java》third edition 上一题相似的题目，书中有4种解法
- *      后续有时间可以看看第三种解法{@link analysis.chapter2_analysis.MaxSubSeqSumSolution#maxSubSum3(int[])}
+ *      后续有时间可以看看第三种解法{@link MaxSubSeqSumSolution4#maxSubSum3(int[])}
  * </pre>
  *
  * @author ihaokun
@@ -41,7 +43,7 @@ public class GreatestSumOfSubArray {
     }
 
     /**
-     * 这题做过，在书上看过这题，见{@link analysis.chapter2_analysis.MaxSubSeqSumSolution}，书中给了4种解法<br/>
+     * 这题做过，在书上看过这题，见{@link MaxSubSeqSumSolution4}，书中给了4种解法<br/>
      * 这里我先使用第二种穷举（exhaustive）的方式来解这道题
      *
      * @param array 序列
@@ -61,7 +63,7 @@ public class GreatestSumOfSubArray {
     }
 
     /**
-     * 这是解法4{@link analysis.chapter2_analysis.MaxSubSeqSumSolution#maxSubSum4(int[])}
+     * 这是解法4{@link MaxSubSeqSumSolution4#maxSubSum4(int[])}
      * 但之前 书上给的条件是：（为方便起见，如果所有整数均为负数，则最大子序列和为0）
      *      故，该解法不适用这道（包含全为负数情况）的题
      *

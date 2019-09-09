@@ -1,9 +1,9 @@
-package algorithms.chapter1;
+package algorithms.chapter1_fundamentals;
 
 /**
  * <pre>
  * 欧几里得算法（辗转相除法）
- *      目的：找到两个数的最大公约数
+ *      目的：找到两个数的<em>最大公约数</em>
  *      最大公约数(gcd, greatest common divisor)：数学词汇，也称为最大公因数(hcf, highest common factor)
  *                                                指能够整除多个整数的最大正整数，且多个整数不能都为0
  *      自然语言描述：

@@ -1,4 +1,4 @@
-package algorithms.chapter1;
+package algorithms.chapter1_fundamentals;
 
 import java.util.Arrays;
 
