@@ -1,4 +1,4 @@
-package jianzhi;
+package jianzhi.list;
 
 import java.util.Arrays;
 

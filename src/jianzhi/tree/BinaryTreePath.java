@@ -36,7 +36,7 @@ import java.util.Stack;
  * @author ihaokun
  * @date 2019/8/21 11:32
  */
-public class TreePath {
+public class BinaryTreePath {
     private static class TreeNode {
         int val;
         TreeNode left = null;

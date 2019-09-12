@@ -1,11 +1,9 @@
 package jianzhi.list;
 
-import java.util.Arrays;
-
 /**
  * <pre>
  *     剑指offer - 数字在排序数组中出现的次数
- *     和之前做的一道题看起来相似，见{@link jianzhi.MoreThanHalfNum "数组中出现次数超过一半的数字"}
+ *     和之前做的一道题看起来相似，见{@link MoreThanHalfNum "数组中出现次数超过一半的数字"}
  *
  *     题目描述：
  *          统计一个数字在排序数组中出现的次数。
@@ -18,11 +16,13 @@ import java.util.Arrays;
  *      解法：
  *          这题比较简单，给定了条件<em>排序数组</em>，那么某数字在 排序数组 中出现次数就很好统计了
  *          猜测这题应该是考察 <em>折半查找 Binary Search</em>，不难，想到的解法可以有3种
+ *          {@link analysis.chapter2_analysis.BinarySearch "Binary Search写过的参考-1"}
+ *          {@link algorithms.chapter1_fundamentals.BinarySearch "Binary Search写过的参考-2"}
  * </pre>
  *
  * @author ihaokun
  * @date 2019/9/10 22:39
- * @see jianzhi.MoreThanHalfNum "数组中出现次数超过一半的数字"
+ * @see MoreThanHalfNum "数组中出现次数超过一半的数字"
  */
 public class GetNumberOfK {
     public static void main(String[] args) {
@@ -108,5 +108,26 @@ public class GetNumberOfK {
             return count;
         }
         return 0;
+    }
+
+    /**
+     * 解法2 中的 二分查找 提取出来，程序的层次结构会更好一点
+     *
+     * @param array  有序数组
+     * @param target 目标元素
+     * @return 元素下标
+     */
+    private static int binarySearch(int[] array, int target) {
+        int low = 0, high = array.length - 1, mid;
+        while (low <= high){
+            mid = (low + high) >>> 1;
+            if (array[mid] < target)
+                low = mid + 1;
+            else if (array[mid] > target)
+                high = mid - 1;
+            else
+                return mid;
+        }
+        return -1;
     }
 }
