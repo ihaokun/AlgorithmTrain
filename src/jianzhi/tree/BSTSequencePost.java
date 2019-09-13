@@ -21,7 +21,7 @@ import java.util.Arrays;
  * @date 2019/8/19 16:32
  * @see <a href="https://blog.csdn.net/u013132035/article/details/80607000">reference link</a>
  */
-public class BSTSeqPost {
+public class BSTSequencePost {
     private static class TreeNode {
         int val = 0;
         TreeNode left = null;

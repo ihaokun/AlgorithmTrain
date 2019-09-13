@@ -17,6 +17,8 @@ import java.util.List;
  *      知识点：
  *          树（层序遍历）
  *
+ *      解题思路：
+ *          使用 层次遍历（level traversal） 得到深度
  * </pre>
  *
  * @author ihaokun
@@ -30,7 +32,6 @@ public class BinaryTreeDepth {
 
         TreeNode(int val) {
             this.val = val;
-
         }
     }
 
@@ -65,10 +66,12 @@ public class BinaryTreeDepth {
 
     /**
      * <pre>
-     *      二叉树的层序遍历（Level Traversal）
+     *      通过 二叉树的层序遍历（Level Traversal），得到此二叉树的深度
      *      小结一下二叉树的几种遍历
-     *      先序、后序、中序、层序
-     *          均使用递归实现
+     *          先序、后序、中序、层序
+     *              均使用递归实现
+     *
+     *       TODO 有时间再分析一下该算法的时间复杂度，或考虑使用先序遍历得到深度；这题由于只给了根节点，不然用后序遍历的话，求高度或深度都是不错的
      * </pre>
      *
      * @param list  该层节点数组
