@@ -28,7 +28,7 @@ import java.util.*;
  * @author ihaokun
  * @date 2019/9/14 22:19
  */
-public class FindNumbersAppearOnce {
+public class NumbersAppearOnce {
     public static void main(String[] args) {
         // solution(nums, new int[1], new int[1]);
         // init
