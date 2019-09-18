@@ -1,4 +1,4 @@
-package jianzhi;
+package jianzhi.string;
 
 /**
  * <pre>
@@ -15,6 +15,8 @@ package jianzhi;
  *          知识迁移能力
  *     知识点：
  *          字符串
+ *
+ *     简单题
  * </pre>
  *
  * @author ihaokun
