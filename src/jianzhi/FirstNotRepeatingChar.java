@@ -26,7 +26,7 @@ public class FirstNotRepeatingChar {
     }
 
     /**
-     * 使用LinkedMap解题
+     * 使用LinkedHashMap解题
      *
      * @param string 字符串
      * @return 首个不重复的字符

@@ -34,12 +34,12 @@ public class String2Integer {
      *          1. 初始化一个Map，字符 和 整数 的 0 ~ 9，一一对应
      *          2. String转为Char数组，按位求和，得到对应整数
      *      其中一些不符合的情况，视情况return 0
-     *
-     *     有空可以看看JDK是如何实现的，见{@link Integer#parseInt(String)}
+     *      补充：可以优化一下，不用初始化Map，直接'9' - '0'，这样也可以
      * </pre>
      *
      * @param str 字符串
      * @return 转化后整数
+     * @see Integer#parseInt(String) "JDK实现，可以参考"
      */
     private static int convert(String str) {
         // if (str == null || str.equals(""))
