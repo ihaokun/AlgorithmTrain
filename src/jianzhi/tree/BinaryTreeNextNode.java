@@ -17,6 +17,11 @@ import java.util.List;
  *      二叉树、中序遍历
  * 知识点：
  *      二叉树
+ *
+ * 小结：
+ *    两种解法：
+ *    - 一种通过向上指针，得到根节点，再通过遍历得到该树的中序数组，最后查找得到目标节点的下一个节点
+ *    - 另一种较为特殊，需要考虑三种情况，直接找节点的下一个节点
  * </pre>
  *
  * @author ihaokun
@@ -27,7 +32,7 @@ public class BinaryTreeNextNode {
     int val;
     TreeLinkNode left = null;
     TreeLinkNode right = null;
-    /** 注意：根据题目给的条件，该next变量，实际指的应该是当前节点的父节点 该命名并不合适，使用super更恰当 */
+    /** XXX 注意：根据题目给的条件，该next变量，实际指的应该是当前节点的父节点 该命名并不合适，使用super更恰当 */
     TreeLinkNode next = null;
 
     TreeLinkNode(int val) {
