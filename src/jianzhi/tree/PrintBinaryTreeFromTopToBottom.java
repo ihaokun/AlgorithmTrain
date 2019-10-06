@@ -17,16 +17,6 @@ import java.util.ArrayList;
  * @date 2019/8/17 23:04
  */
 public class PrintBinaryTreeFromTopToBottom {
-    private static class TreeNode {
-        int val = 0;
-        TreeNode left = null;
-        TreeNode right = null;
-
-        public TreeNode(int val) {
-            this.val = val;
-        }
-    }
-
     /**
      * 层序遍历 二叉树
      * 每层按 从左至右 的顺序

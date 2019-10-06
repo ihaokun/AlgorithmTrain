@@ -20,15 +20,6 @@ import java.util.Queue;
  * @see PrintBinaryTreeFromTopToBottom "关联题"
  */
 public class PrintBinaryTreeLevelOrder {
-  private static class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
-
-    TreeNode(int val) {
-      this.val = val;
-    }
-  }
 
   public static void main(String[] args) {
     // init
@@ -60,6 +51,7 @@ public class PrintBinaryTreeLevelOrder {
         // for (int i = integers.size() - 1; i >= 0; i--) {
         //   System.out.println(integers.get(i));
         // }
+        //XXX 注意Collections这个工具类的使用，其和Arrays对于数组的作用差不多，是对于集合的工具类
         Collections.reverse(integers);
         arr.add(integers);
       } else {
@@ -77,7 +69,7 @@ public class PrintBinaryTreeLevelOrder {
     // 当前层 所有节点 值表
     ArrayList<Integer> arr = new ArrayList<>();
     if (!queue.isEmpty()) {
-      // 需copy一个数组用于遍历，避免因 循环过程中对队列进行修改，导致抛出异常
+      //XXX 注意：需copy一个数组用于遍历，避免因 循环过程中对队列进行修改，导致抛出异常(xxx 对应Arrays.asList()方法，Collection也有实例方法toArray())
       TreeNode[] treeNodes = queue.toArray(new TreeNode[0]);
       for (TreeNode item : treeNodes) {
         arr.add(item.val);
