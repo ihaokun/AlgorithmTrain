@@ -1,4 +1,4 @@
-package jianzhi.tree;
+package jianzhi;
 
 import java.util.Arrays;
 
@@ -29,24 +29,20 @@ public class Median {
 
   private StringBuffer buffer = new StringBuffer();
 
-  public void insert(Integer num) {
+  private void insert(Integer num) {
     buffer.append(num);
     buffer.append(",");
   }
 
-  public Double getMedian() {
+  private Double getMedian() {
     String s = buffer.toString();
     String[] split = s.split(",");
     int length = split.length;
     int remainder = length % 2;
     Arrays.sort(split);
     if (remainder == 1) return Double.valueOf(split[length / 2]);
-    if (remainder == 0) {
-      // 注意一下，int转double的位置
-      return (double)
-              (Integer.parseInt(split[length / 2]) + Integer.parseInt(split[length / 2 - 1]))
-          / 2;
-    }
-    return null;
+    // 注意一下，int转double的位置
+    return (double) (Integer.parseInt(split[length / 2]) + Integer.parseInt(split[length / 2 - 1]))
+        / 2;
   }
 }
