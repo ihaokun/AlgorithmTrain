@@ -19,6 +19,8 @@ import java.util.Queue;
  *
  * <p>解题思路：使用Queue + Collections工具类的max()方法；这个解法并不好，过于依赖Java的类库了，而且有冗余，应该可以在获取每个窗体的最大值那里优化一下
  *
+ * <p>顺带翻译一下题目：大致就是求 等长的连续子序列 的最大值
+ *
  * @author ihaokun
  * @date 2019/10/11 0:53
  */
@@ -50,5 +52,4 @@ public class MaxInWindows {
     }
     return arrayList;
   }
-
 }
