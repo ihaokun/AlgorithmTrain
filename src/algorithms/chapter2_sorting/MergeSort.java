@@ -11,7 +11,6 @@ import analysis.chapter2_analysis.MaxSubSeqSumSolution4;
  *
  *     基于抽象方法
  *     运用 分治、递归，可以参见 第三种解法{@link MaxSubSeqSumSolution4#solution3(int[])}
- *
  * </pre>
  *
  * @author ihaokun
