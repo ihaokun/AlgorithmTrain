@@ -18,6 +18,7 @@ package jianzhi.list;
  *      三种解法：
  *          解法一穷举；解法二不太好，是自己想的，思路比较歪；第三种解法好一点
  *          这题和 Merge Sort 关联很大，可以参考一下{@link algorithms.chapter2_sorting.MergeSort}
+ *                                                  {@link algorithms.chapter2_sorting.MergeSort2}
  *
  * </pre>
  *
@@ -37,13 +38,13 @@ public class InversePairs {
         System.out.println(solutionByMerge(array));
     }
 
-    private static long divisor = 1000000007;
+    private static int divisor = 1000000007;
 
     /**
-     * XXX 解法一 穷举法
-     * 可以使用 双重循环
+     * 解法一 穷举法
+     * 使用 双重循环
      *
-     * case通过率50，但时间复杂度过大，导致该题运行超时
+     * 答案正确，但时间复杂度过大，导致该题运行超时
      *
      * 分析该解法：
      * 双重for循环，时间复杂度 O(N²)
@@ -72,7 +73,7 @@ public class InversePairs {
      * @param array 数组
      * @return 数组中逆序对的个数 % 1000000007 的值
      */
-    /** 辅助数组 */
+    //辅助数组
     private static int[] aux;
     private static int solutionByMerge(int[] array) {
         aux = new int[array.length];
@@ -80,7 +81,7 @@ public class InversePairs {
         /*for (int i : array) {
             System.out.println(i);
         }*/
-        //XXX 这题有点坑的地方，因为输入范围过大，必须使用long类型，截尾得到int值返回
+        // 这题有点坑的地方，因为输入范围过大，必须使用long类型，截尾得到int值返回（以后做题还要注意下题目的 XXX 输入情况）
         return (int) (count % divisor);
     }
 

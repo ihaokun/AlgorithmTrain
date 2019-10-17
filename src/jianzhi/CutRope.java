@@ -14,12 +14,37 @@ package jianzhi;
 public class CutRope {
   public static void main(String[] args) {
     // Initialization
-    int n = 8;
-    int m = 3;
-    // Test
-
+    int n = 8; // 长度
+    // int m = 3; // 段数
+    // int[] arr = new int[m];
+    // Test Case（n=8，m=3，maxProduct=3*3*2=18）
+    CutRope rope = new CutRope();
+    System.out.println("rope.cutRope(n) = " + rope.cutRope(n));
   }
-  public int cutRope(int target) {
-    return -1;
+
+  // 乘积
+  private int product = 1;
+  /**
+   * 得到了一个思路，5是关键数字
+   * 该解法涉及到了数学知识，运用了证明
+   *
+   * @param target target > 1
+   * @return 最大乘积
+   * @see <a href="https://www.acwing.com/solution/acwing/content/731/">启发思路</a>
+   */
+  private int cutRope(int target) {
+    // 这题一开始是没思路的，看了看评论，大致是有两种解法：动态规划 和 贪心算法
+    // 两种都听说过，但都不会写，就先试试笨的穷举思路吧
+    if (target == 2) return 1;
+    while (target > 1){
+      if (target >= 5){
+        product *= 3;
+        target -= 3;
+      } else {
+        product *= 2;
+        target -= 2;
+      }
+    }
+    return product;
   }
 }

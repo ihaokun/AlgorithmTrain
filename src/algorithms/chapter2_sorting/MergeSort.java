@@ -10,7 +10,8 @@ import analysis.chapter2_analysis.MaxSubSeqSumSolution4;
  *          该算法基于<em>归并</em>这个简单的操作，即将两个有序的数组通过递归操作，归并成一个更大的有序的数组
  *
  *     基于抽象方法
- *     运用 分治、递归，可以参见 第三种解法{@link MaxSubSeqSumSolution4#solution3(int[])}
+ *     运用 分治（递归），可以参见 第三种解法{@link MaxSubSeqSumSolution4#solution3(int[])}
+ *                                         新{@link MergeSort2}
  * </pre>
  *
  * @author ihaokun
