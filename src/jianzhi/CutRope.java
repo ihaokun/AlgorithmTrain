@@ -22,20 +22,25 @@ public class CutRope {
     System.out.println("rope.cutRope(n) = " + rope.cutRope(n));
   }
 
-  // 乘积
-  private int product = 1;
   /**
-   * 得到了一个思路，5是关键数字
+   * <p>得到了一个思路，<em>5</em>是关键数字
    * 该解法涉及到了数学知识，运用了证明
+   * <p>证明过程：
+   * 当 N >= 5 时，3 * (N - 3) >= 2 * (N - 2) > 5
+   *
+   * <p>可得到结论：尽量减 长为3 的绳子
    *
    * @param target target > 1
    * @return 最大乘积
    * @see <a href="https://www.acwing.com/solution/acwing/content/731/">启发思路</a>
+   * @see <a href="https://www.cnblogs.com/shiganquan/p/9289984.html">启发思路2</a>
    */
   private int cutRope(int target) {
-    // 这题一开始是没思路的，看了看评论，大致是有两种解法：动态规划 和 贪心算法
-    // 两种都听说过，但都不会写，就先试试笨的穷举思路吧
+    // 这题一开始是没思路的，看了看评论，大致是有两种解法：动态规划 和 贪心算法；本解法采用的是 贪心算法
+    // 两种都听说过，但都不会写；这里根据数学证明，使用了一种 联机on-line算法O(N)
     if (target == 2) return 1;
+    // 乘积
+    int product = 1;
     while (target > 1){
       if (target >= 5){
         product *= 3;
