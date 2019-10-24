@@ -27,7 +27,6 @@ import java.util.Queue;
 public class MaxInWindows {
   public static void main(String[] args) {
     // 根据题意，可预估使用 队列Queue 更加合适
-    // 再根据过程，可预估可以使用 插入排序Insert Sort
     int[] arr = {2, 3, 4, 2, 6, 2, 5, 1};
     MaxInWindows maxInWindows = new MaxInWindows();
     System.out.println(maxInWindows.maxInWindows(arr, 3));
@@ -35,10 +34,9 @@ public class MaxInWindows {
 
   private ArrayList<Integer> maxInWindows(int[] num, int size) {
     ArrayList<Integer> arrayList = new ArrayList<>();
-
+    if (num.length < size || size <= 0) return arrayList;
     Queue<Integer> queue = new LinkedList<>();
     int i = 0;
-    if (num.length < size || size <= 0) return arrayList;
     for (; i < size; i++) {
       queue.offer(num[i]);
     }
