@@ -1,5 +1,8 @@
 package jianzhi;
 
+import algorithms.chapter2_sorting.InsertionSorting;
+import algorithms.chapter2_sorting.SelectionSorting;
+
 import java.util.ArrayList;
 
 /**
@@ -15,7 +18,7 @@ import java.util.ArrayList;
  *
  * 解法：
  *      这次手写一下排序算法吧，快速排序|冒泡排序，并进行算法分析
- *      补充：这题可能适合使用 <em>选择排序{@link algorithms.chapter2_sorting.SelectionSort#sort(Comparable[])}</em> 来解题
+ *      补充：这题可能适合使用 <em>选择排序{@link SelectionSorting#sort(Comparable[])}</em> 来解题
  *            原因：题目<em>找出其中<strong>最小的K个</strong>数</em>，那么使用选择排序，可以节省外层循环的次数，即交换次数
  * </pre>
  *
@@ -55,7 +58,7 @@ public class GetLeastNumbers {
      *
      * wiki：
      *      Bubble Sort是一种最简单了解和实现的算法，简洁，但对于包含大量元素的数列排序很没效率
-     *      逐渐被 <em>插入排序{@link algorithms.chapter2_sorting.InsertionSort}</em> 替代
+     *      逐渐被 <em>插入排序{@link InsertionSorting}</em> 替代
      * 杂闻：
      *      名字由来：越小的元素会经由交换慢慢“浮”到数列的顶端；
      *                有时称为<i>鸡尾酒排序</i>，因为算法会从数列的一端到另一端之间穿梭往返

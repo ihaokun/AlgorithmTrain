@@ -2,6 +2,7 @@ package company;
 
 /**
  * 计算二叉树最大路径
+ * TODO 这道题在leetcode上搜到了原题，是一个difficult的题目，暂时不做<a href="https://leetcode-cn.com/problemset/algorithms/?search=%E8%B7%AF%E5%BE%84&topicSlugs=tree">leetcode</a>
  *
  * @author ihaokun
  * @date 2019/10/17 10:13
@@ -13,7 +14,7 @@ public class BinaryTreeMaxPath {
     // 和之前做的有些不同，之前的树都是链表的形式，用数组的话没做过
     // 题目中，路径是指一条从树中任意节点出发，到达任意节点的序列。该路径至少包含一个节点，且不一定经过根节点
     System.out.println();
-    // 题目随便sout了一个6还OC了。。。
+    // 题目随便sout了一个6还AC了。。。
     System.out.println("Byte.MAX_VALUE = " + Byte.MAX_VALUE);
     System.out.println("Short.MAX_VALUE = " + Short.MAX_VALUE);
     System.out.println("Character.BYTES = " + Character.BYTES);

@@ -1,4 +1,4 @@
-package analysis.chapter3;
+package analysis.chapter3_basic_data_structure;
 
 /**
  * 详见chapter 3.6.3 应用中的 中缀到后缀的转换

@@ -1,5 +1,8 @@
 package jianzhi.list;
 
+import algorithms.chapter2_sorting.MergeSortingTopDown;
+import algorithms.chapter2_sorting.MergeSorting;
+
 /**
  * <pre>
  *     剑指offer - 数组中的<em>逆序对</em>
@@ -17,8 +20,8 @@ package jianzhi.list;
  *
  *      三种解法：
  *          解法一穷举；解法二不太好，是自己想的，思路比较歪；第三种解法好一点
- *          这题和 Merge Sort 关联很大，可以参考一下{@link algorithms.chapter2_sorting.MergeSort}
- *                                                  {@link algorithms.chapter2_sorting.MergeSort2}
+ *          这题和 Merge Sort 关联很大，可以参考一下{@link MergeSorting}
+ *                                                  {@link MergeSortingTopDown}
  *
  * </pre>
  *

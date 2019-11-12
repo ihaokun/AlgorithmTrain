@@ -11,16 +11,16 @@ import analysis.chapter2_analysis.MaxSubSeqSumSolution4;
  *
  *     基于抽象方法
  *     运用 分治（递归），可以参见 第三种解法{@link MaxSubSeqSumSolution4#solution3(int[])}
- *                                         新{@link MergeSort2}
+ *                                         新{@link MergeSortingTopDown}
  * </pre>
  *
  * @author ihaokun
  * @date 2019/9/6 6:19
  */
-public class MergeSort extends SortTemplate {
+public class MergeSorting extends SortTemplate {
     public static void main(String[] args) {
         Comparable[] ints = {6, 4, 3, 2};
-        new MergeSort().sort(ints);
+        new MergeSorting().sort(ints);
     }
 
     /** 归并所需辅助数组，即额外内存 */

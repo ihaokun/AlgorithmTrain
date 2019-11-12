@@ -1,5 +1,7 @@
 package leetcode;
 
+import algorithms.chapter2_sorting.MergeSortingTopDown;
+
 import java.util.Arrays;
 
 /**
@@ -42,7 +44,7 @@ public class FindMedianSortedArrays {
     int[] nums2 = {1,2};
     // Test
     FindMedianSortedArrays instance = new FindMedianSortedArrays();
-    System.out.println(instance.findMedianSortedArrays2(nums1, nums2));
+    System.out.println(instance.findMedianSortedArrays(nums1, nums2));
   }
 
   /**
@@ -54,7 +56,7 @@ public class FindMedianSortedArrays {
    * @param nums1
    * @param nums2
    * @return
-   * @see algorithms.chapter2_sorting.MergeSort2#merge(int[], int, int, int)
+   * @see MergeSortingTopDown#merge(int[], int, int, int)
    */
   private double findMedianSortedArrays(int[] nums1, int[] nums2) {
     // 根据题意，第一个思路是两个有序数组排序（有种既视感，似乎哪道题也这么做过）
@@ -76,6 +78,7 @@ public class FindMedianSortedArrays {
     return median;
   }
 
+  @Deprecated
   private double findMedianSortedArrays1(int[] nums1, int[] nums2) {
     // 解法存在缺陷，数组内存在负数会得到错误结果
     if (nums1.length == 0 || nums2.length == 0)
@@ -101,7 +104,7 @@ public class FindMedianSortedArrays {
           Arrays.copyOfRange(nums2, 0, nums2.length / 2));
     }
   }
-
+  @Deprecated
   private double findMedianSortedArrays2(int[] nums1, int[] nums2) {
     // 官方题解：使用 递归+二分查找
     // 替换 三元运算符，使用 (nums[(len + 1) / 2 - 1] + nums[(len + 2) / 2 - 1]) / 2，即可以表示数组中位数
@@ -119,7 +122,7 @@ public class FindMedianSortedArrays {
       return findMedianSortedArrays2(Arrays.copyOfRange(nums1, 0, left1), Arrays.copyOfRange(nums2, left2 + 1, nums2.length));
     }
   }
-
+  @Deprecated
   private double doubleBinarySearch(int[] arr1, int off1, int len1, int[] arr2, int off2, int len2){
 
     return 0D;

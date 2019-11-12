@@ -16,6 +16,10 @@ package jianzhi;
  *
  * 关联：
  *      和之前做的一道题有相似之处，也是剑指offer的题，见{@link NumberOf1InBinary}
+ *      XXX 补充关联：在一家笔试题上做到了相同的题目，当时没想到，后面感觉有些相似，题目要求O(N)时间复杂度，5道题的第4题
+ *
+ * 小结：
+ *    解题的话，一般使用解法2和解法3；如果考虑时间复杂度，则使用解法3；解法2仅仅是简单而已
  * </pre>
  *
  * @author ihaokun
@@ -24,10 +28,13 @@ package jianzhi;
 public class NumberOf1InIntegerRange {
     public static void main(String[] args) {
         // init
-        int n = 13;
+        // int n = 21345;
+        int n = 10;
+        // int n = 112;
         // test
         System.out.println(solution(n));
         System.out.println(solution1(n));
+        System.out.println(solution2(n));
     }
 
     /**
@@ -37,6 +44,8 @@ public class NumberOf1InIntegerRange {
      *
      *      解法一：穷举；使用String；善用Java的API，在String和int之间相互转换
      *              时间复杂度是O(N²)
+     *
+     *      补充：笔试的解法和这个类似，不过没用String，整数的1的个数是用/和%计算的
      *
      * @param n 1~N，n即为范围
      * @return 范围内1出现的次数，详见题意
@@ -61,6 +70,8 @@ public class NumberOf1InIntegerRange {
      *      同样是穷举，但这个没有使用类型转换，故相较解法一，运行更快
      *                  且使用数学性质，代码更简洁、不依赖某一编程语言
      *
+     *      补充：这个解法时间复杂度还是O(N²)
+     *
      * @param n 范围终点
      * @return 1出现次数
      */
@@ -76,4 +87,29 @@ public class NumberOf1InIntegerRange {
         }
         return count;
     }
-}
+
+  private static int solution2(int n) {
+    // 需要新的思路，实现时间复杂度小于O(N)
+    // 需要使用 数学知识，数学归纳法
+    // 解法思路：统计 位数上1的和，216
+    int count = 0;
+    for (int i = 1; i <= n; i *= 10) {
+      // 位前半部分计算
+      int bitLess = n / i > 1 ? i : (n % i + 1);
+      // 位后半部分计算
+      int bitMore = 0;
+      if (n / (i * 10) > 0) {
+        if (n % (i * 10) >= (2 * i - 1)) {
+          bitMore = n / (i * 10) * i;
+        } else {
+          bitMore = (n / (i * 10) - 1) * i;
+          if (n % (i * 10) > 0) bitMore += n % i + 1;
+        }
+        // bitMore = (n/(i*10) - 1)*i + n%i;
+        // if (n % 10 > 0) bitMore++;
+      }
+      count += bitLess + bitMore;
+    }
+    return count;
+  }
+  }

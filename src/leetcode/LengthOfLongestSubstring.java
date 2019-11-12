@@ -45,7 +45,7 @@ public class LengthOfLongestSubstring {
   }
 
   // 解法一：使用 穷举 + hashtable(HashSet)
-  // 顺带分析该解法 时间复杂度：O(n³)
+  // 顺带分析该解法 时间复杂度：O(n³)，XXX contains()方法相当于一个N
   private int lengthOfLongestSubstring(String s) {
     /*
     Set<String> set = new HashSet<>();
