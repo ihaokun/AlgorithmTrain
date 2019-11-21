@@ -107,6 +107,7 @@ public class LongestPalindromicSubstring {
       if (i + 2 < length && s.charAt(i) == s.charAt(i + 2) && s.charAt(i) != s.charAt(i + 1)){
         r += 2;
       } else {
+        // 连续相同的回文类型
         while (r + 1 < length && s.charAt(l) == s.charAt(r + 1)){
           r += 1;
         }

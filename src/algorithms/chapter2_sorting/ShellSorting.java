@@ -19,7 +19,7 @@ import java.util.Arrays;
  * @date 2019/9/1 2:12
  * @see <a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F">wiki<a/>
  */
-public class ShellSorting extends SortTemplate {
+public class ShellSorting extends Sorting {
     public static void main(String[] args) {
         Comparable[] arr = {6, 9, 5, 7, 1, 3};
         new ShellSorting().sort(arr);

@@ -24,7 +24,7 @@ import java.util.Arrays;
  * @author ihaokun
  * @date 2019/8/31 23:22
  */
-public class InsertionSorting extends SortTemplate {
+public class InsertionSorting extends Sorting {
     public static void main(String[] args) {
         // Comparable[] comparables = {7,9,8,2};
         Comparable[] comparables = {7,6,5,4,3,2,1};

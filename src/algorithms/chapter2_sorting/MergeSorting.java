@@ -17,7 +17,7 @@ import analysis.chapter2_analysis.MaxSubSeqSumSolution4;
  * @author ihaokun
  * @date 2019/9/6 6:19
  */
-public class MergeSorting extends SortTemplate {
+public class MergeSorting extends Sorting {
     public static void main(String[] args) {
         Comparable[] ints = {6, 4, 3, 2};
         new MergeSorting().sort(ints);

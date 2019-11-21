@@ -9,7 +9,7 @@ package algorithms.chapter2_sorting;
  * @author ihaokun
  * @date 2019/8/31 19:27
  */
-public abstract class SortTemplate {
+public abstract class Sorting {
     public abstract void sort(Comparable[] arr);
 
     public static boolean isSort(Comparable[] arr){

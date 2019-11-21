@@ -30,7 +30,7 @@ import java.util.Arrays;
  * @author ihaokun
  * @date 2019/8/31 20:46
  */
-public class SelectionSorting extends SortTemplate {
+public class SelectionSorting extends Sorting {
     public static void main(String[] args) {
         Comparable[] comparables = {7, 9, 8, 2};
         new SelectionSorting().sort(comparables);
