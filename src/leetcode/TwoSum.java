@@ -17,7 +17,7 @@ import java.util.Map;
  * </pre>
  *
  * <p>涉及知识点：hashing
- * <p>Level：Simple
+ * <p>LEVEL：EASY
  *
  * @author ihaokun
  * @date 2019/10/19 22:46

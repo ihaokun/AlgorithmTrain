@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 6 Z字行变换（Zigzag Conversion）
  *
@@ -27,6 +24,7 @@ import java.util.List;
  * <strong>可知，实际不是Z，而是N字形</strong>
  *
  * <p>Tags: string
+ * <p>LEVEL:MEDIUM
  *
  * @author ihaokun
  * @date 2019/11/19 22:16
@@ -44,8 +42,8 @@ public class ZigzagConversion {
   public static void main(String[] args) {
     // new TestCase("LEETCODEISHIRING", 3);
     // new TestCase("LEETCODEISHIRING", 4);
-    System.out.println(new ZigzagConversion().convert("LEETCODEISHIRING", 3));
-    System.out.println(new ZigzagConversion().convert("AB", 1));
+    System.out.println(new ZigzagConversion().convert1("LEETCODEISHIRING", 3));
+    System.out.println(new ZigzagConversion().convert1("AB", 1));
     // System.out.println(new ZigzagConversion().convert("LEETCODEISHIRING", 4));
   }
 
@@ -57,7 +55,7 @@ public class ZigzagConversion {
       StringBuilder builder = new StringBuilder(length);
       char[][] matrix = new char[numRows][length];
       int rowN = 0, colN = 0;
-      // build matrix
+      // build matrix，循环体 = 竖下+斜上
       for (int i = 0; i < length; ) {
         for (int j = 0; j < numRows && i < length; j++) {
           matrix[rowN++][colN] = s.charAt(i++);
@@ -79,17 +77,46 @@ public class ZigzagConversion {
       return s;
     }
   }
-  // solution 1：有点类似于缩小增量排序 Shell's Sorting
-  private String solution(String s, int numRows) {
-    // 转换思路，直接从string取
-    int interval = (numRows - 1) * 2;
-    StringBuilder builder = new StringBuilder();
-    for (int i = 0; i < numRows; i++) {
-      for (int j = i; j < s.length(); j += interval) {
-        builder.append(s.charAt(j));
-      }
+  // 分析该解法的时间复杂度 O(N²)
+
+  // Official Solution
+  private String convert1(String s, int numRows) {
+    if (numRows == 1) return s;
+    StringBuilder[] builders = new StringBuilder[Math.min(s.length(), numRows)];      // non-null rows
+    for (int i = 0; i < builders.length; i++) {                                         // array elements init, avoid NPE
+      builders[i] = new StringBuilder();
     }
-    System.out.println(s.length() == builder.length());
-    return builder.toString();
+
+    boolean goingDown = false;
+    int i = 0;
+    for (char c : s.toCharArray()) {
+      builders[i].append(c);
+      /*if (goingDown){
+        if (i == builders.length - 1){
+          --i;
+          goingDown = false;
+        } else {
+          ++i;
+        }
+      } else {
+        if (i == 0){
+          ++i;
+          goingDown = true;
+        } else {
+          --i;
+        }
+      }*/
+      // simplify above if-else
+      if (i == 0 || i == builders.length - 1){
+        goingDown = !goingDown;
+      }
+      i += goingDown ? 1:-1;
+    }
+    StringBuilder res = new StringBuilder();
+    for (StringBuilder builder : builders) {
+      res.append(builder.toString());
+    }
+    return res.toString();
   }
+  // 官方解法，直接将按Z字形排列的数组，转化成从左至右、从上至下的数组；时间复杂度O(N)，聪明解法
 }

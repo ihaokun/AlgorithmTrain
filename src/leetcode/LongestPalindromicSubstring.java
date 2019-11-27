@@ -15,6 +15,8 @@ package leetcode;
  * 输入: "cbbd"
  * 输出: "bb"
  * </pre>
+ * <p>TAGS: Dynamic Programming、string
+ * <p>LEVEL: MEDIUM
  *
  * @author ihaokun
  * @date 2019/10/30 9:32
