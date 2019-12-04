@@ -2,6 +2,7 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 7 整数反转
@@ -39,13 +40,14 @@ public class IntegerReverse {
     // System.out.println(instance.reverse(-123));
     // System.out.println(instance.reverse(120));
     // System.out.println(instance.reverse(Integer.MAX_VALUE + 1));
-    System.out.println(instance.reverse1(123));
-    System.out.println(instance.reverse1(-123));
-    System.out.println(instance.reverse1(120));
-    System.out.println(instance.reverse1(Integer.MAX_VALUE + 1));
+    System.out.println(instance.reverse3(123));
+    System.out.println(instance.reverse3(-123));
+    System.out.println(instance.reverse3(120));
+    System.out.println(instance.reverse3(Integer.MAX_VALUE + 1));
   }
 
   // way 1: use String API
+  @Deprecated@SuppressWarnings("not a good way, it's too foolish")
   private int reverse(int x) {
     String s = String.valueOf(x);
     boolean isNegative = false;
@@ -70,6 +72,7 @@ public class IntegerReverse {
     }
   }
 
+  // way 2, like 1 use List
   private int reverse1(int x) {
     long result = 0;
     List<Integer> list = new ArrayList<>();
@@ -82,6 +85,32 @@ public class IntegerReverse {
       result += i * Math.pow(10, --size);
     }
     if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) return 0;
+    return (int)result;
+  }
+
+  // way3, use Stack; almost equivalent to 2
+  private int reverse2(int x){
+    long result = 0;
+    Stack<Integer> stack = new Stack<>();
+    do{
+      stack.push(x % 10);
+    }while ((x /= 10) != 0);
+    int size = stack.size();
+    for (int i = 0; i < size; i++) {
+      result += stack.pop() * Math.pow(10, i);
+    }
+    if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) return 0;
+    return (int)result;
+  }
+
+  // optimize 2
+  private int reverse3(int x){
+    long result = 0;
+    do{
+      if (result*10 > Integer.MAX_VALUE || result*10 < Integer.MIN_VALUE) return 0;
+      result = result*10 + x%10;
+      if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) return 0;
+    }while ((x /= 10) != 0);
     return (int)result;
   }
 }
