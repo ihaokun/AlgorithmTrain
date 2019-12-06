@@ -16,7 +16,7 @@ package leetcode;
  */
 public class Atoi {
   private static String[] strs;
-  {
+  static {
     strs = new String[11];
     strs[0] = "42"; //42
     strs[1] = "   -42"; //-42
@@ -36,44 +36,12 @@ public class Atoi {
   public static void main(String[] args) {
     Atoi instance = new Atoi();
     for (String str : strs) {
-      System.out.println(instance.myAtoi1(str));
+      System.out.println(instance.myAtoi(str));
     }
+  }
 
-  }
-  private int myAtoi(String str) {
-    // trim leading & trailing spaces
-    str = str.trim();
-    if (str.isEmpty()) return 0;
-    // remain
-    char c = str.charAt(0);
-    if ((c >= '0' && c <= '9') || c == '-' || c == '+'){
-      char[] chars = str.toCharArray();
-      int i = 1;
-      long sum = 0;
-      for (; i < chars.length; i++) {
-        // 这里应该要使用上一题的思路，计算而不是使用语法糖
-        if (!(chars[i] >= '0' && chars[i] <= '9')){
-          // sum = sum*10 +
-          break;
-        }
-      }
-      long l = 0;
-      try {
-        l = Long.parseLong(str.substring(0, i));
-      } catch (NumberFormatException e) {
-        // e.printStackTrace();
-        return 0;
-      }
-      // Check Out of Integer Bounds
-      if (l > Integer.MAX_VALUE) return Integer.MAX_VALUE;
-      else if (l < Integer.MIN_VALUE) return Integer.MIN_VALUE;
-      else return (int)l;
-    } else {
-      return 0;
-    }
-  }
   // perhaps should use recursive
-  private int myAtoi1(String str) {
+  private int myAtoi(String str) {
     // trim leading & trailing spaces
     str = str.trim();
     if (str.isEmpty()) return 0;
