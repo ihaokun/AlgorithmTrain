@@ -25,8 +25,7 @@ package jianzhi.string;
  */
 public class RegexMatch {
     public static void main(String[] args) {
-        System.out.println("match(\"aaa\".toCharArray(), \"a.a\".toCharArray()) = " + match("aaa".toCharArray(), "a.a".toCharArray()));
-
+        System.out.println("match(\"aaa\".toCharArray(), \"a.a\".toCharArray()) = " + solution("aaa".toCharArray(), "a.a".toCharArray()));
     }
 
     /**
@@ -40,29 +39,28 @@ public class RegexMatch {
      * @return regex是否匹配该string
      * @see String#matches(String) "JDK的正则表达式匹配"
      */
-    private static boolean match(char[] str, char[] pattern) {
+    private static boolean solution(char[] str, char[] pattern) {
         return String.valueOf(str).matches(String.valueOf(pattern));
     }
 
-    private static boolean solution(char[] str, char[] pattern) {
-        // 解法 二，需要充分考虑第二位是*的情况
-        if (str == null && pattern == null)
-            return false;
-        return subMatch(str, 0, pattern, 0);
+    // 解法二，需要充分考虑第二位是*的情况
+    private static boolean solution1(char[] str, char[] pattern) {
+        if (str == null && pattern == null) return false;
+        return matches(str, 0, pattern, 0);
     }
 
     /**
      * <pre>
-     *     解法二：
-     *          共 4 种情况
+     *   解法二：
+     *        共 4 种情况
      *
-     *          先分 2 大块
-     *          1. pattern中的第二个字符不是'*'
-     *              字符串str 和 模式pattern 一一匹配，不符合则 return false
-     *          2. pattern中的第二个字符是'*'
-     *              '*'代表0个字符，即前面的字符不匹配任何，相当于不存在；模式pattern后移两个字符，字符串str不移动
-     *              '*'代表1个字符，即前面的字符仅匹配一个，仅有一个；模式pattern向后移动两个字符，字符串str移动一位
-     *              '*'代表多个字符，即前面的字符匹配多个；模式pattern向后移动两个字符，字符串str移动多位
+     *        先分 2 大块
+     *        1. pattern中的第二个字符不是'*'
+     *            字符串str 和 模式pattern 一一匹配，不符合则 return false
+     *        2. pattern中的第二个字符是'*'
+     *            '*'代表0个字符，即前面的字符不匹配任何，相当于不存在；模式pattern后移两个字符，字符串str不移动
+     *            '*'代表1个字符，即前面的字符仅匹配一个，仅有一个；模式pattern向后移动两个字符，字符串str移动一位
+     *            '*'代表多个字符，即前面的字符匹配多个；模式pattern向后移动两个字符，字符串str移动多位
      *
      * </pre>
      *
@@ -70,25 +68,23 @@ public class RegexMatch {
      * @param pattern 正则表达式
      * @return regex是否匹配该string
      */
-    private static boolean subMatch(char[] str, int strIndex, char[] pattern, int patternIndex) {
+    private static boolean matches(char[] str, int strIndex, char[] pattern, int patternIndex) {
         //有效性检验：str到尾，pattern到尾，匹配成功
-        if (strIndex == str.length && patternIndex == pattern.length)
-            return true;
+        if (strIndex == str.length && patternIndex == pattern.length) return true;
         //pattern先到尾，匹配失败
-        if (strIndex != str.length && patternIndex == pattern.length)
-            return false;
+        if (strIndex != str.length && patternIndex == pattern.length) return false;
         //模式第2个是*，且字符串第1个跟模式第1个匹配,分3种匹配模式；如不匹配，模式后移2位
         if (patternIndex + 1 < pattern.length && pattern[patternIndex + 1] == '*') {
             if (strIndex < str.length && (pattern[patternIndex] == str[strIndex] || pattern[patternIndex] == '.'))
-                return subMatch(str, strIndex, pattern, patternIndex + 2)//模式后移2，视为x*匹配0个字符
-                        || subMatch(str, strIndex + 1, pattern, patternIndex + 2)//视为模式匹配1个字符
-                        || subMatch(str, strIndex + 1, pattern, patternIndex);//*匹配1个，再匹配str中的下一个
+                return matches(str, strIndex, pattern, patternIndex + 2)//模式后移2，视为x*匹配0个字符
+                        || matches(str, strIndex + 1, pattern, patternIndex + 2)//视为模式匹配1个字符
+                        || matches(str, strIndex + 1, pattern, patternIndex);//*匹配1个，再匹配str中的下一个
             else
-                return subMatch(str, strIndex, pattern, patternIndex + 2);
+                return matches(str, strIndex, pattern, patternIndex + 2);
         }
         //模式第2个不是*，且字符串第1个跟模式第1个匹配，则都后移1位，否则直接返回false
         if (strIndex < str.length && (pattern[patternIndex] == str[strIndex] || pattern[patternIndex] == '.'))
-            return subMatch(str, strIndex + 1, pattern, patternIndex + 1);
+            return matches(str, strIndex + 1, pattern, patternIndex + 1);
         return false;
     }
 }

@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.difficulty;
 
 import algorithms.chapter2_sorting.MergeSortingTopDown;
 
@@ -23,7 +23,7 @@ import java.util.Arrays;
  * 则中位数是 (2 + 3)/2 = 2.5
  * </pre>
  *
- * <p>Level：Difficult
+ * <p>Level：Difficulty
  * TODO 暂时放弃，困难难度的题目确实挺难的，自己思考很难想到好的解法
  *
  * @author ihaokun

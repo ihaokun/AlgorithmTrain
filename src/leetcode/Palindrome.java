@@ -14,7 +14,7 @@ package leetcode;
  */
 public class Palindrome {
   private static int[] ints;
-  {
+  static {
     ints = new int[4];
     ints[0] = 121;  //true
     ints[1] = -121;  //false
@@ -35,7 +35,7 @@ public class Palindrome {
     int tmp = x;
     int reverse = 0;
     do{
-      //CURX 和前两题(7.8)一样的数学思路
+      //CRUX 和前两题(7.8)一样的数学思路
       reverse = reverse*10 + tmp%10;
     }while ((tmp /= 10) != 0);
     return reverse == x;

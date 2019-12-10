@@ -12,6 +12,7 @@ import java.util.Scanner;
  *
  * 要点：
  * 1.《Thinking in Java》的char有关章节部分有说，不建议使用char[]；应该更多的使用String和StringBuilder
+ *   《Core Java》也有说，少用char，用String替代
  * 2. int 转 char 是高向低转换，会出现问题，不要这么使用，把char[]改为用String替代
  *
  * 关联：

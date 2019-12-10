@@ -68,7 +68,7 @@ public class Atoi {
     char[] chars = str.toCharArray();
     for (; i < chars.length; i++) {
       if (chars[i] >= '0' && chars[i] <= '9'){
-        //CURX 这里应该要使用上一题的思路，计算而不是使用语法糖
+        //CRUX 这里应该要使用上一题的思路，计算而不是使用语法糖
         l = l*10 + chars[i] - '0';
         if (l > max){
           if (flag) return Integer.MIN_VALUE;

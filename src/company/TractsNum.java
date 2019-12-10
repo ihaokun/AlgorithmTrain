@@ -5,6 +5,7 @@ package company;
  *
  * @author ihaokun
  * @date 2019/10/17 10:02
+ * @see leetcode.Palindrome "来源，真正优秀的解法"
  */
 public class TractsNum {
   public static void main(String[] args) {

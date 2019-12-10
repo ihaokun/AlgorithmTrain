@@ -108,6 +108,7 @@ public class IntegerReverse {
     long result = 0;
     do{
       if (result*10 > Integer.MAX_VALUE || result*10 < Integer.MIN_VALUE) return 0;
+      //CRUX 运用数学，替代stack的方式
       result = result*10 + x%10;
       if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) return 0;
     }while ((x /= 10) != 0);
