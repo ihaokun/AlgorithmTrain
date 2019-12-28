@@ -1,7 +1,5 @@
 package leetcode;
 
-import java.util.*;
-
 /**
  * 3. 无重复字符的最长子串
  *

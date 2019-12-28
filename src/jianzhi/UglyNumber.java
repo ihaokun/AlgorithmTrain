@@ -1,7 +1,5 @@
 package jianzhi;
 
-import java.util.ArrayList;
-
 /**
  * <pre>
  * 剑指offer - 丑数

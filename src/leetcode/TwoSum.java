@@ -61,8 +61,8 @@ public class TwoSum {
     // 解法三：使用hashing，一次循环；较之前两种解法，可能返回的数组下标顺序会有些问题
     Map<Integer, Integer> hashMap = new HashMap<>(nums.length);
     for (int i = 0; i < nums.length; i++) {
-      int complement = target - nums[i];
-      if (hashMap.containsKey(complement)) return new int[]{i, hashMap.get(complement)};
+      int value = target - nums[i];
+      if (hashMap.containsKey(value)) return new int[]{i, hashMap.get(value)};
       hashMap.put(nums[i], i);
     }
     return null;

@@ -1,9 +1,5 @@
 package jianzhi.list;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * <pre>
  *     剑指offer - 孩子们的游戏（圆圈中最后剩下的数）
