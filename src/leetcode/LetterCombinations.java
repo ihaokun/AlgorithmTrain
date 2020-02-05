@@ -68,11 +68,12 @@ public class LetterCombinations {
     int[] ordinals = new int[keys.length];
 
     // recursion(keys, ordinals, result);
-    loop(keys, ordinals, result);
+    loop(keys, ordinals, result); //尾递归可以被循环替代
 
     return result;
   }
 
+  @Deprecated
   private void recursion(int[] keys, int[] ordinals, List<String> result) {
     // build string into result(ordinals last update)
     int i = 0;
