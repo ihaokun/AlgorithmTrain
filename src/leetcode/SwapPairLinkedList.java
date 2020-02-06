@@ -16,9 +16,9 @@ import java.util.List;
  * @author ihaokun
  * @date 2020/2/2 23:16
  */
-public class SwapPairsLinkedList {
+public class SwapPairLinkedList {
   public static void main(String[] args) {
-    SwapPairsLinkedList instance = new SwapPairsLinkedList();
+    SwapPairLinkedList instance = new SwapPairLinkedList();
     //sample
     // input: 1->2->3->4
     ListNode head = new ListNode(1);
