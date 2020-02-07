@@ -21,7 +21,7 @@ public class RemoveElement {
     // input: [0,1,2,2,3,0,4,2], 2
     // int[] nums = {3, 2, 2, 3};
     int[] nums = {0,1,2,2,3,0,4,2};
-    int length = instance.solution(nums, 2);
+    int length = instance.solution1(nums, 2);
     for (int i = 0; i < length; i++) {
       System.out.println(nums[i]);
     }
@@ -29,15 +29,24 @@ public class RemoveElement {
 
   private int solution(int[] nums, int val){
     int i = 0;
-    for (int j = 0; j < nums.length; j++) {
-      if (nums[j] != val){
+    for (int j = 0; j < nums.length; j++)
+      if (nums[j] != val)
         nums[i++] = nums[j];
-      }
-    }
     return i;
   }
   // 用了和上一道题一样的双指针解法，耗时0ms
 
   // 题示给的不需要考虑元素顺序，或许可以有个新的解法
-
+  // 上一个解法有不必要的复制开销
+  private int solution1(int[] nums, int val){
+    int i = 0;
+    int length = nums.length;
+    while (i < length){
+      // swap & length--
+      if (nums[i] == val) nums[i] = nums[--length];
+      else ++i;
+    }
+    return i;
+  }
+  // 两个解法都是原地算法，所以空间复杂度都是O(1)；时间复杂度均是O(N)
 }
