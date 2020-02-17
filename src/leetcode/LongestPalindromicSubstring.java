@@ -23,7 +23,7 @@ package leetcode;
  * @see company.TractsNum 回文数
  * @see LengthOfLongestSubstring 最长子串
  * @see analysis.chapter2_analysis.MaxSubSeqSumSolution4 书上经典的 子串4种解法
- * @see jianzhi.MaxInWindows 剑指offer 子串
+ * @see nowcoder.jianzhi.MaxInWindows 剑指offer 子串
  */
 public class LongestPalindromicSubstring {
   static private String[] cases;

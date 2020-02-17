@@ -10,7 +10,7 @@ package company.meituan;
  *
  * <p>Test Case: 输入：MPMPCPMCMDEFEGDEHINHKLIN 输出：9 7 8 MPMPCPMCM,DEFEGDE,HINHKLIN
  *
- * <p>猜测：应该是 动态规划 题目，估计做不出来，有空要先做做下剑指offer的那最后一道动态规划题{@link jianzhi.CutRope}
+ * <p>猜测：应该是 动态规划 题目，估计做不出来，有空要先做做下剑指offer的那最后一道动态规划题{@link nowcoder.jianzhi.CutRope}
  *
  * @author ihaokun
  * @date 2019/10/16 15:49

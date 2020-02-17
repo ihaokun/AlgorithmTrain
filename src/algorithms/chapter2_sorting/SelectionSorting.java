@@ -19,7 +19,7 @@ import java.util.Arrays;
  *      4 5 6 8
  *      4 5 6 8 9
  *
- * 和 Bubble Sort{@link jianzhi.GetLeastNumbers#bubbleSort(int[])} 比较一下
+ * 和 Bubble Sort{@link nowcoder.jianzhi.GetLeastNumbers#bubbleSort(int[])} 比较一下
  *      相同：
  *          时间复杂度相同，都是O(N²)
  *          都使用 双重循环

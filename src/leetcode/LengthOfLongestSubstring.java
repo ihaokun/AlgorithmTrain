@@ -82,7 +82,7 @@ public class LengthOfLongestSubstring {
   }
 
   /**
-   * 使用 队列Queue 的解法， 在 剑指offer 也有做到相似解法的题目，{@link jianzhi.MaxInWindows}
+   * 使用 队列Queue 的解法， 在 剑指offer 也有做到相似解法的题目，{@link nowcoder.jianzhi.MaxInWindows}
    *
    * <p>该解法时间复杂度分析：O(N²)
    *

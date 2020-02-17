@@ -1,6 +1,6 @@
 package company.trend;
 
-import jianzhi.NumberOf1InBinary;
+import nowcoder.jianzhi.NumberOf1InBinary;
 
 import java.util.Arrays;
 import java.util.Scanner;

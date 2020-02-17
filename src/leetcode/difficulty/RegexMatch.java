@@ -17,7 +17,7 @@ package leetcode.difficulty;
  *
  * @author ihaokun
  * @date 2019/12/7 20:05
- * @see jianzhi.string.RegexMatch "剑指offer有同样的题，还是按照这个思路解吧，虽然效率不高，但官方题解看不懂"
+ * @see nowcoder.jianzhi.string.RegexMatch "剑指offer有同样的题，还是按照这个思路解吧，虽然效率不高，但官方题解看不懂"
  * @see <a href="https://leetcode-cn.com/problems/regular-expression-matching/">原题</a>
  */
 public class RegexMatch {
