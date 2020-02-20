@@ -23,36 +23,31 @@ import java.util.Set;
  * @date 2019/9/21 1:13
  */
 public class ArrayDuplicate {
-    public static void main(String[] args) {
-        int[] array = {2,3,1,0,2,5,3};
-        System.out.println(duplicate(new int[]{}, array.length, new int[1]));
-        System.out.println(duplicate(array, array.length, new int[1]));
-    }
+  public static void main(String[] args) {
+    int[] array = {2, 3, 1, 0, 2, 5, 3};
+    System.out.println(duplicate(new int[]{}, array.length, new int[1]));
+    System.out.println(duplicate(array, array.length, new int[1]));
+  }
 
-    /**
-     * <pre>
-     *      解法：
-     *          使用了Set的特性
-     * </pre>
-     *
-     * @param numbers     an array of integers
-     * @param length      the length of array numbers
-     * @param duplication (Output) the duplicated number in the array number,length of duplication array is 1,so using duplication[0] = ? in implementation;
-     *                    Here duplication like pointor in C/C++, duplication[0] equal *duplicatio
-     *                    这里要特别注意~返回任意重复的一个，赋值duplication[0]
-     * @return true if the input is valid, and there are some duplications in the array number
-     *          otherwise false
-     */
-    private static boolean duplicate(int[] numbers, int length, int[] duplication) {
-        if (numbers == null || length == 0)
-            return false;
-        Set<Integer> set = new HashSet<>();
-        for (int number : numbers) {
-            if (!set.add(number)) {
-                duplication[0] = number;
-                return true;
-            }
-        }
-        return false;
-    }
+  /**
+   * 解法：使用hashing的特性。Java的实现之一，HashSet
+   *
+   * @param numbers     an array of integers
+   * @param length      the length of array numbers
+   * @param duplication (Output) the duplicated number in the array number,length of duplication array is 1,so using duplication[0] = ? in implementation;
+   *                    Here duplication like pointor in C/C++, duplication[0] equal *duplicatio
+   *                    这里要特别注意~返回任意重复的一个项，赋值duplication[0]
+   * @return true if the input is valid, and there are some duplications in the array number
+   * otherwise false
+   */
+  private static boolean duplicate(int[] numbers, int length, int[] duplication) {
+    if (numbers == null || length == 0) return false;
+    Set<Integer> set = new HashSet<>();
+    for (int number : numbers)
+      if (!set.add(number)) {
+        duplication[0] = number;
+        return true;
+      }
+    return false;
+  }
 }
