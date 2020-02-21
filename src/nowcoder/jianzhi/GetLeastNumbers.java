@@ -1,7 +1,7 @@
 package nowcoder.jianzhi;
 
-import algorithms.chapter2_sorting.InsertionSorting;
-import algorithms.chapter2_sorting.SelectionSorting;
+import algorithms.chapter2sorting.InsertionSorting;
+import algorithms.chapter2sorting.SelectionSorting;
 
 import java.util.ArrayList;
 

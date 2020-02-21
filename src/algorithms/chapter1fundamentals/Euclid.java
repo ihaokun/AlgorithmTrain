@@ -1,4 +1,4 @@
-package algorithms.chapter1_fundamentals;
+package algorithms.chapter1fundamentals;
 
 /**
  * <pre>

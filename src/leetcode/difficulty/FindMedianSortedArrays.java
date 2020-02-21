@@ -1,6 +1,6 @@
 package leetcode.difficulty;
 
-import algorithms.chapter2_sorting.MergeSortingTopDown;
+import algorithms.chapter2sorting.MergeSortingTopDown;
 
 import java.util.Arrays;
 

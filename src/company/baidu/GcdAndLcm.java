@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * SCAN电梯调度；堆
- * {@link algorithms.chapter1_fundamentals.Euclid "之前在书上看到过的欧几里得算法（辗转相除法）求GCD"}
+ * {@link algorithms.chapter1fundamentals.Euclid "之前在书上看到过的欧几里得算法（辗转相除法）求GCD"}
  * <p>
  *     之前做过GCD，或许以前课堂上也知道LCM的概念，但这次确是是没做出来，
  *     感觉很糟糕<br/>

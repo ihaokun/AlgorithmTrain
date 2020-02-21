@@ -1,7 +1,7 @@
 package nowcoder.jianzhi.list;
 
-import algorithms.chapter2_sorting.MergeSortingTopDown;
-import algorithms.chapter2_sorting.MergeSorting;
+import algorithms.chapter2sorting.MergeSortingTopDown;
+import algorithms.chapter2sorting.MergeSorting;
 
 /**
  * <pre>

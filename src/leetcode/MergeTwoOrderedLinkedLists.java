@@ -47,9 +47,9 @@ public class MergeTwoOrderedLinkedLists {
    * @param l1
    * @param l2
    * @return
-   * @see algorithms.chapter2_sorting.MergeSorting#merge(Comparable[], int, int, int)
-   * @see algorithms.chapter2_sorting.MergeSortingTopDown#merge(int[], int, int, int)
-   * @see algorithms.chapter2_sorting.MergeSortingBottomUp#merge(int[], int, int, int)
+   * @see algorithms.chapter2sorting.MergeSorting#merge(Comparable[], int, int, int)
+   * @see algorithms.chapter2sorting.MergeSortingTopDown#merge(int[], int, int, int)
+   * @see algorithms.chapter2sorting.MergeSortingBottomUp#merge(int[], int, int, int)
    */
   private ListNode solution(ListNode l1, ListNode l2) {
     // sort two ordered linked list, get a ordered <queue(impl by linked list)>

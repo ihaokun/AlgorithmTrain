@@ -1,4 +1,4 @@
-package algorithms.chapter2_sorting;
+package algorithms.chapter2sorting;
 
 /**
  * 排序算法模板类

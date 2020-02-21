@@ -17,7 +17,7 @@ package nowcoder.jianzhi.list;
  *          这题比较简单，给定了条件<em>排序数组</em>，那么某数字在 排序数组 中出现次数就很好统计了
  *          猜测这题应该是考察 <em>折半查找 Binary Search</em>，不难，想到的解法可以有3种
  *          {@link analysis.chapter2_analysis.BinarySearch "Binary Search写过的参考-1"}
- *          {@link algorithms.chapter1_fundamentals.BinarySearch "Binary Search写过的参考-2"}
+ *          {@link algorithms.chapter1fundamentals.BinarySearch "Binary Search写过的参考-2"}
  * </pre>
  *
  * @author ihaokun
