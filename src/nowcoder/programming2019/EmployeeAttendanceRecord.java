@@ -17,7 +17,7 @@ import java.util.Scanner;
  * 考勤周期的天数N（正整数）
  *
  * 输出描述:
- * 这N天里能获得奖赏的考勤组合数
+ * 这N天里能获得奖赏的考勤<i>组合数</i>
  *
  * @author ihaokun
  * @date 2020/2/22 16:34

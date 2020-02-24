@@ -30,7 +30,7 @@ public class VisitFriend {
     int[] strides = {1, 2, 3, 4, 5};  // stride：步长
     int idx = 4;
     while (x > 0){
-      while (x < strides[idx] && idx >= 0) {
+      while (idx >=0 && x < strides[idx]) {
         idx--;
       }
       x -= strides[idx];
