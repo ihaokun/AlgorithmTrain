@@ -20,7 +20,7 @@ import java.util.Scanner;
  * @author ihaokun
  * @date 2020/2/24 17:40
  */
-public class NonDecreaseSequence {
+public class NonDecrementSequence {
   public static void main(String[] args) {
     // input
     Scanner sc = new Scanner(System.in);
@@ -33,6 +33,7 @@ public class NonDecreaseSequence {
       if (count > 1) break;
       if (Integer.parseInt(split[i]) > Integer.parseInt(split[i + 1])) count++;
     }
+    // output
     System.out.println(count > 1 ? 0 : 1);
   }
 }

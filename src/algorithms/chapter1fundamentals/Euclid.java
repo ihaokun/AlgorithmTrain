@@ -17,7 +17,6 @@ package algorithms.chapter1fundamentals;
  *          若 (A - B) mod N = 0，则 A mod N = B mod N，
  *          记作 A≡B(mod N)
  *          示例：36.26.10,(36-26) mod 10 = 0， 36 mod 10 = 26 mod 10 = 6
- *
  * </pre>
  *
  * @author ihaokun
