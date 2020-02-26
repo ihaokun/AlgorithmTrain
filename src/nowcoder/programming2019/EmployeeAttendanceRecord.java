@@ -3,7 +3,7 @@ package nowcoder.programming2019;
 import java.util.Scanner;
 
 /**
- * 员工考勤记录——招商银行
+ * 员工考勤记录——招商银行信用卡中心
  *
  * 题目描述：
  * 给定一个字符串来代表一个员工的考勤纪录，这个纪录仅包含以下两个字符：

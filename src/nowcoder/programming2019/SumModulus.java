@@ -3,7 +3,7 @@ package nowcoder.programming2019;
 import java.util.Scanner;
 
 /**
- * 模数求和——拼多多
+ * 模数求和——网易
  *
  * 题目描述：
  * 现给定n个整数，并定义一个非负整数m，且令f(m) = (m%a1)+(m%a2)+...+(m%an)。
