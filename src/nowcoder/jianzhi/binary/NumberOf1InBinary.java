@@ -1,4 +1,4 @@
-package nowcoder.jianzhi;
+package nowcoder.jianzhi.binary;
 
 /**
  * <pre>

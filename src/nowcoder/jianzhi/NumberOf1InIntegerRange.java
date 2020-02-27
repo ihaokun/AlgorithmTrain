@@ -1,5 +1,7 @@
 package nowcoder.jianzhi;
 
+import nowcoder.jianzhi.binary.NumberOf1InBinary;
+
 /**
  * <pre>
  * 剑指offer - 整数中1出现的次数（从1到n整数中1出现的次数）
