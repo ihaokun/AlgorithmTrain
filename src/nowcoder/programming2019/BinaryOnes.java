@@ -72,7 +72,7 @@ public class BinaryOnes {
   private static void trimOneFromEndOneByOne(int i){
     int result = 0;
     int count = 0;
-    while (count < 32){     // ? 负数的移位问题，不等同于正数的移位（正数移位是相当于乘除法2）
+    while (count < 32){     // ? 负数的移位问题，不等同于正数的移位（正数移位是相当于乘除法2）；负数的右移位操作，最终停在-1的值
       if ((i & 1) == 1) result++;
       i >>= 1;
       count++;
